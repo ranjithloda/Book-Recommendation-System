@@ -1,0 +1,111 @@
+
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Login or Register</title>
+            <style>
+                /* Basic resets */
+                * {
+                    margin: 0;
+                    padding: 0;
+                    box-sizing: border-box;
+                }
+        
+                body {
+                    font-family: 'Arial', sans-serif;
+                    background-color: #f0f4f8;
+                    height: 100vh;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    flex-direction: column;
+                }
+        
+                /* Container styling */
+                .container {
+                    background-color: #ffffff;
+                    padding: 30px;
+                    border-radius: 10px;
+                    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+                    text-align: center;
+                    width: 400px;
+                }
+        
+                h2 {
+                    margin-bottom: 20px;
+                    color: #333;
+                    font-weight: bold;
+                    font-size: 24px;
+                }
+        
+                /* Input groups */
+                .input-group {
+                    margin-bottom: 20px;
+                }
+        
+                .btn {
+                    width: 100%;
+                    padding: 10px;
+                    background-color: #74b9ff;
+                    border: none;
+                    color: white;
+                    font-size: 16px;
+                    border-radius: 5px;
+                    cursor: pointer;
+                    transition: background-color 0.3s ease;
+                }
+        
+                .btn:hover {
+                    background-color: #0984e3;
+                }
+        
+                .book-images {
+                    display: flex;
+                    justify-content: space-between;
+                    margin-top: 20px;
+                }
+        
+                .book-images img {
+                    width: 120px;
+                    height: 180px;
+                    border-radius: 10px;
+                    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                }
+        
+                /* Responsive */
+                @media (max-width: 500px) {
+                    .container {
+                        width: 90%;
+                    }
+                }
+            </style>
+        </head>
+        <body>
+        
+            <div class="container">
+                <h2>Welcome</h2>
+                <p>Please login or register to explore books</p>
+        
+                <div class="input-group">
+                    <button class="btn"><a href="{{ url_for('login') }}">Login</a></button>
+        
+                </div>
+        
+                <div class="input-group">
+                    <button class="btn"><a href="{{ url_for('register') }}">Register</a></button>
+                </div>
+        
+                <!-- Book images -->
+                <div class="book-images">
+                    <img src="https://via.placeholder.com/120x180?text=Book1" alt="Book 1">
+                    <img src="https://via.placeholder.com/120x180?text=Book2" alt="Book 2">
+                    <img src="https://via.placeholder.com/120x180?text=Book3" alt="Book 3">
+                </div>
+            </div>
+        
+        </body>
+        </html>
+        

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="{{ url_for('static', filename='images/boooooks-logo.png') }}" type="image/icon type">
+    <title>Books Genre Recommendation</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/main.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&family=Unbounded:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <header>
+        <nav class="logo top">
+		<img src="{{ url_for('static', filename='images/boooooks-logo.png') }}" alt="logo" class="img-logo" />
+		<a href="/home">
+            	Book Recommendation<span> System</span>
+		</a>
+        </nav>
+    </header>
+
+    <h1 class='genre_heading'>Genre Recommendations</h1>
+    <h2 class='genre_title'>Genre: {{ genre }}</h2>
+    <div class="recom-holder">
+        <ul>
+            {% for index, book in books.iterrows() %}
+            <li>
+                <div>
+			<a href="/recommendations/book/{{ book.id }}" class='recom-box'>
+                    		<img src="{{ book.cover_image_url }}" alt="cover-img", class="cover-img">
+                    		<div class="recom-content">
+                        	<h1 class="title">{{ book['title'] }}</h1>
+                        	<p class="author">{{ book['author'] }}</p>
+                        	<div class="tags">
+                            		{% for genr in book['genre'].split(',') %}
+                            		<span class="tag-span">{{ genr }}</span>
+                            		{% endfor %}
+                        	</div>
+                    		</div>
+                    		<div class="link">&gt</div>
+			</a>
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+<footer>
+    <p>BOOK RECOMMENDATION SYSTEM</p>
+</footer>
+
+</body>
+</html>

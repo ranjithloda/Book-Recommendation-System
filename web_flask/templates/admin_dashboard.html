@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* Your styles here */
+    </style>
+</head>
+
+<body>
+    <div class="sidebar">
+        <ul>
+            <li><a href="{{ url_for('admin_dashboard') }}">Dashboard</a></li>
+            <li><a href="{{ url_for('add_book') }}">Add New Book</a></li>
+            <a href="{{ url_for('admin_logout') }}">Logout</a>
+
+        </ul>
+    </div>
+    <div class="content">
+        <nav class="navbar">
+            <span class="navbar-brand">Admin Dashboard</span>
+        </nav>
+        <div class="container">
+            <h2>Welcome to the Admin Dashboard</h2>
+            <p>Only Admin can access this.</p>
+        </div>
+    </div>
+</body>
+
+</html>

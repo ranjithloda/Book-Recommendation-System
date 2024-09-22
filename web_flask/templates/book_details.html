@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="{{ url_for('static', filename='images/boooooks-logo.png') }}" type="image/icon type">
+    <title>Book Recommendation System</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/main.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&family=Unbounded:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+	<header>
+    <nav class="logo top">
+	    <img src="{{ url_for('static', filename='images/boooooks-logo.png') }}" alt="logo" class="img-logo" />
+	    <a href="/home">
+        	Book Recommendation<span> System</span>
+	    </a>
+    </nav>
+</header>
+
+<section class="book_content">
+    <div class="go_back">
+	    <!-- <a href="/recommendations">&larr; Back</a> -->
+    </div>
+
+    <div>
+        <div class="recom-box2">
+            <img src="{{ book.cover_image_url }}" alt="cover-img" class="cover-img2">
+            <div class="recom-content">
+                <h1 class="title2">{{ book.title }}</h1>
+                <p class="author2">{{ book.author }}</p>
+                <p class="publication-date">Published: {{ book.publication_date }}</p>
+                <div class="tags">
+                    {% for genr in book.genre.split(',') %}
+                    <span class="tag-span">{{ genr }}</span>
+                    {% endfor %}
+                </div>
+                <div class="rating">
+                    {% if book.rating %}
+                        <span>{{ book.rating }}</span>
+                        {% for _ in range(book.rating|int) %}
+                            <span class="star">&starf;</span>
+                        {% endfor %}
+                    {% else %}
+                        <span>No ratings</span>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        <div class="description">
+            <h2>Book Description</h2>
+            <p>{{ book.description }}</p>
+        </div>
+    </div>
+</section>
+
+
+	<footer>
+        <p>Book Recommendation System. Copyright (c) 2024 B10 batch</p>
+    </footer>
+
+</body>
+</html>
